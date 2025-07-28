@@ -719,9 +719,11 @@ const CanvasView: React.FC<CanvasViewProps> = ({ vscode, nonce }) => {
                     animationTime: 150          // Quick double-click zoom
                 }}
                 wheel={{
-                    wheelDisabled: true,        // Disable wheel zoom
+                    wheelDisabled: false,        // Disable wheel zoom
                     touchPadDisabled: false,    // Enable trackpad pan
-                    step: 0.05                  // Even smaller zoom steps
+                    step: 0.05,                  // Even smaller zoom steps
+                    activationKeys: ['Meta'],
+                    excluded: ["button"]
                 }}
                 panning={{
                     disabled: dragState.isDragging,

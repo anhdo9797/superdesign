@@ -55,7 +55,13 @@ const ModelSelector: React.FC<ModelSelectorProps> = ({ selectedModel, onModelCha
         { id: 'rekaai/reka-flash-3', name: 'Reka Flash 3', provider: 'OpenRouter (Reka)', category: 'Balanced' },
         // Existing OpenAI (direct)
         { id: 'gpt-4.1', name: 'GPT-4.1', provider: 'OpenAI', category: 'Balanced' },
-        { id: 'gpt-4.1-mini', name: 'GPT-4.1 Mini', provider: 'OpenAI', category: 'Fast' }
+        { id: 'gpt-4.1-mini', name: 'GPT-4.1 Mini', provider: 'OpenAI', category: 'Fast' },
+        /// free
+        { id: 'deepseek/deepseek-chat-v3-0324:free', name: 'deepseek-chat-v3-0324:free', provider: 'OpenRouter (DeepSeek)', category: 'Free' },
+        { id: 'qwen/qwen3-coder:free', name: 'qwen3-coder:free', provider: 'OpenRouter (Qwen)', category: 'Free' },
+        { id: 'google/gemini-2.0-flash-exp:free', name: 'google/gemini-2.0-flash-exp:free', provider: 'OpenRouter (Google)', category: 'Free' },
+        { id: 'moonshotai/kimi-k2:free', name: 'moonshotai/kimi-k2:free', provider: 'OpenRouter (MoonshotAI)', category: 'Free' },
+
     ];
 
     const filteredModels = models.filter(model =>

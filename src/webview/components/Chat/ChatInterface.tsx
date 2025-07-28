@@ -24,6 +24,14 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ layout, vscode }) => {
     const [showFullContent, setShowFullContent] = useState<{[key: string]: boolean}>({});
     const [currentContext, setCurrentContext] = useState<{fileName: string; type: string} | null>(null);
     const [showWelcome, setShowWelcome] = useState<boolean>(false);
+    const chatHistoryRef = useRef<HTMLDivElement>(null);
+
+    // Scroll to bottom when new messages are added
+    useEffect(() => {
+        if (chatHistoryRef.current) {
+            chatHistoryRef.current.scrollTop = chatHistoryRef.current.scrollHeight;
+        }
+    }, [chatHistory]);
 
     // Drag and drop state
     const [uploadingImages, setUploadingImages] = useState<string[]>([]);
@@ -1341,7 +1349,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ layout, vscode }) => {
             )}
 
             <div className="chat-container">
-                <div className="chat-history">
+                <div className="chat-history" ref={chatHistoryRef}>
                     {showWelcome ? (
                         <Welcome 
                             onGetStarted={handleWelcomeGetStarted}
